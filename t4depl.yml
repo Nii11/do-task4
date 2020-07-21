@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: t4depl 
+  labels:
+    env: test
+spec:
+  selector:
+    matchLabels:
+      env: test
+  strategy:
+    type: Recreate
+  template:
+     metadata:
+       labels:
+          env: test
+     spec:
+       containers:
+         - name: t4depl1
+           image: niraj1102/t4:latest
+           imagePullPolicy: Always
