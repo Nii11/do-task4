@@ -1,0 +1,13 @@
+FROM niraj1102/simplehtml:v1
+
+RUN mkdir /root/exec/
+
+COPY * /root/exec/
+
+RUN  cp  /root/exec/*.html /var/www/html/
+
+CMD /bin/bash
+
+EXPOSE 80/tcp
+
+CMD /usr/sbin/httpd -DFOREGROUND
